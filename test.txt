@@ -1,0 +1,29 @@
+
+https://imagingsolution.net/imaging/unsharpmasking/
+先鋭化フィルタについて
+http://imgprolab.sys.fit.ac.jp/~yama/imgproc/lec/imgproc_filtering_2016.pdf
+
+
+
+RGB to YCbCr
+
+Y =   0.257R + 0.504G + 0.098B + 16
+Cb = -0.148R - 0.291G + 0.439B + 128
+Cr =  0.439R - 0.368G - 0.071B + 128
+
+ Y(Y)  =  0.299*R + 0.587*G + 0.114*B
+ U(Cb) = -0.169*R - 0.331*G + 0.500*B
+ V(Cr) =  0.500*R - 0.419*G - 0.081*B
+
+H = atan2( (0.5*R-0.419*G-0.081*B), (-0.169*R-0.331*G+0.5*B) )
+S = sqrt( pow((-0.169*R-0.331*G+0.5*B),2.)+pow((0.5*R-0.419*G-0.081*B),2.) );
+V = 0.299*R + 0.587*G + 0.114*B
+
+
+
+
+
+ Rが最大値の場合 色相 H = 60 × ((G - B) ÷ (MAX - MIN))
+Gが最大値の場合 色相 H = 60 × ((B - R) ÷ (MAX - MIN)) +120
+Bが最大値の場合 色相 H = 60 × ((R - G) ÷ (MAX - MIN)) +240
+3つとも同じ値の場合 色相 H = 0
