@@ -3,14 +3,22 @@ https://imagingsolution.net/imaging/unsharpmasking/
 先鋭化フィルタについて
 http://imgprolab.sys.fit.ac.jp/~yama/imgproc/lec/imgproc_filtering_2016.pdf
 
+HSV変換して画像の緑部分抽出
+
+HW/SWの協調システムと相性よさそう。
+自動運転の際の前処理的に使える？時間によって輝度は大きく変わる。（YUVでも事足りそう）
+プログラマブルSocが実装には向きそう、ZynqみたいにPSとPLが近いほうがいいな
+
+
+
 
 
 RGB to YCbCr
-
+//ver seikika 最低16保障.cbとcrが255まで拡張
 Y =   0.257R + 0.504G + 0.098B + 16
 Cb = -0.148R - 0.291G + 0.439B + 128
 Cr =  0.439R - 0.368G - 0.071B + 128
-
+//ver seikikanasi
  Y(Y)  =  0.299*R + 0.587*G + 0.114*B
  U(Cb) = -0.169*R - 0.331*G + 0.500*B
  V(Cr) =  0.500*R - 0.419*G - 0.081*B
